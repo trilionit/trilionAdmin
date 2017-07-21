@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<meta name="robots" content="noindex">
+    <title>Trilion Admin System- Manage Your Web App with Ease</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/layout.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="login" align="center">
+        <div class="frm-ctn">
+          <form action="ssc/login" method="post" class="sign-in" id="ta-login">
+            <div id="errorHeadline"></div>
+            <div id="emailDiv">
+              <input type="email" name="email" placeholder="Email Address" class="frm-ctn-input" id="email" required />
+            </div>
+            <div id="passwordDiv">
+              <input type="password" name="password" placeholder="password" class="frm-ctn-input" id="password" required />
+            </div>
+            <input type="submit" name="submit" value="Sign In" class="submit" id="submit">
+            <p class="p"><a href="#">Forgotten my password</a></p>
+          </form>
+          <form class="forgotten-password" action="ssc/password" method="post">
+                <input type="email" name="email" placeholder="Email Address" class="frm-ctn-input" id="email" required />
+                <input type="submit" name="submit" class="submit" value="Recover Password" id="submit">
+                <p class="p"><a href="#">Back to Login Page</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
