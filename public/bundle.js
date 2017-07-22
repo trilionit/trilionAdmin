@@ -20275,8 +20275,7 @@
 			var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this));
 	
 			_this.state = {
-				email: null,
-				password: null
+				setDashboard: false
 			};
 			return _this;
 		}
@@ -20297,7 +20296,10 @@
 			key: 'handleLoginSubmit',
 			value: function handleLoginSubmit(event) {
 				event.preventDefault();
-				console.log("submitted");
+				this.setState({
+					setDashboard: true
+				});
+				console.log(this.state.setDashboard);
 			}
 		}, {
 			key: 'handleForgotSubmit',
@@ -20344,7 +20346,7 @@
 							_react2.default.createElement(
 								'div',
 								{ id: 'emailDiv' },
-								_react2.default.createElement('input', { type: 'email', className: 'frm-ctn-input', placeholder: 'Email', name: 'email' })
+								_react2.default.createElement('input', { type: 'email', className: 'frm-ctn-input', onChange: this.handleEmail.bind(this), placeholder: 'Email', name: 'email', id: 'email', required: true })
 							),
 							_react2.default.createElement('input', { type: 'submit', name: 'submit', className: 'submit', value: 'Recover Password' }),
 							_react2.default.createElement(

@@ -4,8 +4,7 @@ class LoginForm extends Component{
 	constructor(){
 		super();
 		this.state ={
-			email: null,
-			password:null
+			setDashboard:false			
 		};
 	}
 	handleEmail(event){
@@ -18,7 +17,10 @@ class LoginForm extends Component{
 	}
 	handleLoginSubmit(event){
 		event.preventDefault();
-		console.log("submitted");
+		this.setState({
+			setDashboard:true
+		});
+		console.log(this.state.setDashboard);
 	}
 	handleForgotSubmit(event){
 		event.preventDefault();
@@ -41,7 +43,7 @@ class LoginForm extends Component{
              	</form>
              	<form className="forgotten-password" id="ta-forgot-password" onSubmit={this.handleForgotSubmit.bind(this)}>
 					<div id="emailDiv">
-						<input type="email" className="frm-ctn-input" placeholder="Email" name="email" />
+						<input type="email" className="frm-ctn-input" onChange={this.handleEmail.bind(this)} placeholder="Email" name="email" id="email" required />
 					</div>
 					<input type="submit" name="submit" className="submit" value="Recover Password" />
 					<p className="p"><a href="#">Back to Login Page</a></p>
