@@ -57,7 +57,7 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _Index = __webpack_require__(/*! ./components/login/Index.jsx */ 274);
+	var _Index = __webpack_require__(/*! ./components/login/Index.jsx */ 159);
 	
 	var _Index2 = _interopRequireDefault(_Index);
 	
@@ -20238,131 +20238,7 @@
 
 
 /***/ }),
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */
-/*!***************************!*\
-  !*** ./src/css/style.css ***!
-  \***************************/
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"container":"style__container___1KoiK","error-hd":"style__error-hd___GKfuz","login":"style__login___3qkjH","frm-ctn":"style__frm-ctn___6a7KQ","appendMessageBox":"style__appendMessageBox___x7-r7","frm-ctn-input":"style__frm-ctn-input___3esC2","frm-ctn-input-error":"style__frm-ctn-input-error___1TIDl","submit":"style__submit___AaU-t","p":"style__p___2xnpn","forgotten-password":"style__forgotten-password___fm3Z0"};
-
-/***/ }),
-/* 274 */
+/* 159 */
 /*!****************************************!*\
   !*** ./src/components/login/Index.jsx ***!
   \****************************************/
@@ -20380,7 +20256,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	__webpack_require__(/*! ../../css/style.css */ 273);
+	__webpack_require__(/*! ../../css/style.css */ 160);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -20418,8 +20294,14 @@
 				console.log(event.target.value);
 			}
 		}, {
-			key: 'handleSubmit',
-			value: function handleSubmit(event) {
+			key: 'handleLoginSubmit',
+			value: function handleLoginSubmit(event) {
+				event.preventDefault();
+				console.log("submitted");
+			}
+		}, {
+			key: 'handleForgotSubmit',
+			value: function handleForgotSubmit(event) {
 				event.preventDefault();
 				console.log("submitted");
 			}
@@ -20434,7 +20316,7 @@
 						{ className: 'frm-ctn' },
 						_react2.default.createElement(
 							'form',
-							{ className: 'sign-in', id: 'ta-login', onSubmit: this.handleSubmit.bind(this) },
+							{ className: 'sign-in', id: 'ta-login', onSubmit: this.handleLoginSubmit.bind(this) },
 							_react2.default.createElement(
 								'div',
 								{ id: 'emailDiv' },
@@ -20445,7 +20327,7 @@
 								{ id: 'passwordDiv' },
 								_react2.default.createElement('input', { type: 'password', name: 'password', onChange: this.handlePassword.bind(this), placeholder: 'password', className: 'frm-ctn-input', id: 'password', required: true })
 							),
-							_react2.default.createElement('input', { type: 'submit', name: 'submit', value: 'Sign In', className: 'submit', id: 'submit' }),
+							_react2.default.createElement('input', { type: 'submit', name: 'submit', value: 'Sign In', className: 'submit' }),
 							_react2.default.createElement(
 								'p',
 								{ className: 'p' },
@@ -20453,6 +20335,25 @@
 									'a',
 									{ href: '#' },
 									'Forgotten my password'
+								)
+							)
+						),
+						_react2.default.createElement(
+							'form',
+							{ className: 'forgotten-password', id: 'ta-forgot-password', onSubmit: this.handleForgotSubmit.bind(this) },
+							_react2.default.createElement(
+								'div',
+								{ id: 'emailDiv' },
+								_react2.default.createElement('input', { type: 'email', className: 'frm-ctn-input', placeholder: 'Email', name: 'email' })
+							),
+							_react2.default.createElement('input', { type: 'submit', name: 'submit', className: 'submit', value: 'Recover Password' }),
+							_react2.default.createElement(
+								'p',
+								{ className: 'p' },
+								_react2.default.createElement(
+									'a',
+									{ href: '#' },
+									'Back to Login Page'
 								)
 							)
 						)
@@ -20465,6 +20366,16 @@
 	}(_react.Component);
 	
 	exports.default = LoginForm;
+
+/***/ }),
+/* 160 */
+/*!***************************!*\
+  !*** ./src/css/style.css ***!
+  \***************************/
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"container":"style__container___1KoiK","error-hd":"style__error-hd___GKfuz","login":"style__login___3qkjH","frm-ctn":"style__frm-ctn___6a7KQ","appendMessageBox":"style__appendMessageBox___x7-r7","frm-ctn-input":"style__frm-ctn-input___3esC2","frm-ctn-input-error":"style__frm-ctn-input-error___1TIDl","submit":"style__submit___AaU-t","p":"style__p___2xnpn","forgotten-password":"style__forgotten-password___fm3Z0"};
 
 /***/ })
 /******/ ]);

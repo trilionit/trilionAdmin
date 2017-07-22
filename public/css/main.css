@@ -1,0 +1,121 @@
+/*
+	Date: March 2016
+	Description: Template for Design by Prince
+	Version: 1.0
+	Design By: Prince
+	Author URL: http://designbyprince.com
+*/
+
+/* ===========================
+   ======= Body style ======== 
+   =========================== */
+html { height: 100%; }
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 87.5%; /* Base font size: 14px */
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+	color: #000305;
+	background: #F7F7F7;
+	color: #666;
+	line-height: 1.5em;
+	text-align: left;
+	}
+.style__container___1KoiK{
+	width:100%;
+	height:100%;
+}
+.style__error-hd___GKfuz{
+	width:100%;
+	font-size:11px;
+	padding:10px 0;
+	margin:10px auto;
+	text-align:center;
+	background-color: #f2dede;
+	border-color: #eed3d7;
+	color: #b94a48;
+}
+.style__error-hd___GKfuz p{
+	padding: 0 15px;	
+}
+.style__error-hd___GKfuz a, a:hover{
+	color:#C80A49;
+	text-decoration:none;	
+}
+.style__login___3qkjH{
+	width:360px;
+	margin:100px auto;
+}
+.style__frm-ctn___6a7KQ{
+  max-width: 360px;
+  margin:auto;
+	padding: 45px;
+	border:solid 1px #dedede;
+	background-color:#FFF;
+ 	-moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+ 	border-radius: 1px;
+  -moz-box-shadow: 2px 2px 3px #ccc;
+  -webkit-box-shadow: 2px 2px 3px #ccc;
+ 	box-shadow: 2px 2px 3px #ccc;
+}
+.style__appendMessageBox___x7-r7{
+  width: 100%;
+  margin: -15px 0 15px 0;
+  text-align: left;
+  padding: 10px;
+  background: #FFD4FF;
+  color:#C80A49;
+  box-sizing: border-box;
+}
+.style__frm-ctn-input___3esC2{
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.style__frm-ctn-input-error___1TIDl{
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border:1px solid #FFD4FF;
+}
+.style__frm-ctn___6a7KQ .style__submit___AaU-t{
+  text-transform: uppercase;
+  outline: 0;
+  background-color:#01A7A3;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.style__frm-ctn___6a7KQ .style__submit___AaU-t:hover{
+  background-color:#008A8A;
+}
+.style__frm-ctn___6a7KQ .style__p___2xnpn{
+	font-size:14px;
+  margin: 7px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;	
+}
+.style__frm-ctn___6a7KQ .style__p___2xnpn a{
+  color: #75D4E8;
+  text-decoration: none;	
+}
+.style__frm-ctn___6a7KQ .style__forgotten-password___fm3Z0 {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map*/
