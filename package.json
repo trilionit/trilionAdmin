@@ -11,6 +11,7 @@
   "author": "Fizal Sarif",
   "license": "MIT",
   "dependencies": {
+    "chart.js": "^2.6.0",
     "concurrently": "^3.1.0",
     "css-loader": "^0.26.1",
     "express": "^4.14.0",
