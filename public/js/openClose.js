@@ -1,16 +1,18 @@
 $(function(){
 	$('.togglePlus').click(function(event){
-		var id=event.target.id;
+		event.preventDefault();
+		var id=$(this).attr('id');
 		var toggleId="#toggle-"+id;
-		var togglePlus=".togglePlus span i#"+id;
-		
+		var togglePlus=".togglePlus span i#plus-"+id;
+		// $(toggleId).toggle();
 		$(toggleId).toggle('fast', function(){
-			if($(this).is(':hidden')) {
+			if($(toggleId).is(':hidden')) {
 				$(togglePlus).removeClass("fa-minus");
 				$(togglePlus).addClass("fa-plus");
 			}else{
 				$(togglePlus).removeClass("fa-plus");
 				$(togglePlus).addClass("fa-minus");
+				console.log(id);
 			}
 		});
 	});
