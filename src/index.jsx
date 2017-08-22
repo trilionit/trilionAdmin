@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import LoginForm from './components/login/Index.jsx';
+import dashBoard from './components/dashBoard/Index.jsx';
 
 ReactDom.render(
-	<LoginForm />, document.getElementById('root')
+	<dashBoard />, document.getElementById('root')
 );

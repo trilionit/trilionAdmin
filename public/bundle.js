@@ -57,13 +57,13 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _Index = __webpack_require__(/*! ./components/login/Index.jsx */ 159);
+	var _Index = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/dashBoard/Index.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _Index2 = _interopRequireDefault(_Index);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_Index2.default, null), document.getElementById('root'));
+	_reactDom2.default.render(_react2.default.createElement('dashBoard', null), document.getElementById('root'));
 
 /***/ }),
 /* 1 */
@@ -20236,148 +20236,6 @@
 	
 	module.exports = __webpack_require__(/*! react/lib/ReactDOM */ 3);
 
-
-/***/ }),
-/* 159 */
-/*!****************************************!*\
-  !*** ./src/components/login/Index.jsx ***!
-  \****************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	__webpack_require__(/*! ../../css/style.css */ 160);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var LoginForm = function (_Component) {
-		_inherits(LoginForm, _Component);
-	
-		function LoginForm() {
-			_classCallCheck(this, LoginForm);
-	
-			var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this));
-	
-			_this.state = {
-				setDashboard: false
-			};
-			return _this;
-		}
-	
-		_createClass(LoginForm, [{
-			key: 'handleEmail',
-			value: function handleEmail(event) {
-				event.preventDefault();
-				console.log(event.target.value);
-			}
-		}, {
-			key: 'handlePassword',
-			value: function handlePassword(event) {
-				event.preventDefault();
-				console.log(event.target.value);
-			}
-		}, {
-			key: 'handleLoginSubmit',
-			value: function handleLoginSubmit(event) {
-				event.preventDefault();
-				this.setState({
-					setDashboard: true
-				});
-				console.log(this.state.setDashboard);
-			}
-		}, {
-			key: 'handleForgotSubmit',
-			value: function handleForgotSubmit(event) {
-				event.preventDefault();
-				console.log("submitted");
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ className: 'login' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'frm-ctn' },
-						_react2.default.createElement(
-							'form',
-							{ className: 'sign-in', id: 'ta-login', onSubmit: this.handleLoginSubmit.bind(this) },
-							_react2.default.createElement(
-								'div',
-								{ id: 'emailDiv' },
-								_react2.default.createElement('input', { type: 'email', name: 'email', onChange: this.handleEmail.bind(this), className: 'frm-ctn-input', placeholder: 'Your Email', id: 'email', required: true })
-							),
-							_react2.default.createElement(
-								'div',
-								{ id: 'passwordDiv' },
-								_react2.default.createElement('input', { type: 'password', name: 'password', onChange: this.handlePassword.bind(this), placeholder: 'password', className: 'frm-ctn-input', id: 'password', required: true })
-							),
-							_react2.default.createElement('input', { type: 'submit', name: 'submit', value: 'Sign In', className: 'submit' }),
-							_react2.default.createElement(
-								'p',
-								{ className: 'p' },
-								_react2.default.createElement(
-									'a',
-									{ href: '#' },
-									'Forgotten my password'
-								)
-							)
-						),
-						_react2.default.createElement(
-							'form',
-							{ className: 'forgotten-password', id: 'ta-forgot-password', onSubmit: this.handleForgotSubmit.bind(this) },
-							_react2.default.createElement(
-								'div',
-								{ id: 'emailDiv' },
-								_react2.default.createElement('input', { type: 'email', className: 'frm-ctn-input', onChange: this.handleEmail.bind(this), placeholder: 'Email', name: 'email', id: 'email', required: true })
-							),
-							_react2.default.createElement('input', { type: 'submit', name: 'submit', className: 'submit', value: 'Recover Password' }),
-							_react2.default.createElement(
-								'p',
-								{ className: 'p' },
-								_react2.default.createElement(
-									'a',
-									{ href: '#' },
-									'Back to Login Page'
-								)
-							)
-						)
-					)
-				);
-			}
-		}]);
-	
-		return LoginForm;
-	}(_react.Component);
-	
-	exports.default = LoginForm;
-
-/***/ }),
-/* 160 */
-/*!***************************!*\
-  !*** ./src/css/style.css ***!
-  \***************************/
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"container":"style__container___1KoiK","error-hd":"style__error-hd___GKfuz","login":"style__login___3qkjH","frm-ctn":"style__frm-ctn___6a7KQ","appendMessageBox":"style__appendMessageBox___x7-r7","frm-ctn-input":"style__frm-ctn-input___3esC2","frm-ctn-input-error":"style__frm-ctn-input-error___1TIDl","submit":"style__submit___AaU-t","p":"style__p___2xnpn","forgotten-password":"style__forgotten-password___fm3Z0"};
 
 /***/ })
 /******/ ]);
