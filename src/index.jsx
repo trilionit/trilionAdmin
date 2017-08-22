@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import dashBoard from './components/dashBoard/Index.jsx';
+import './css/style.css';
+import DashBoard from './components/dashBoard/index.jsx';
 
 ReactDom.render(
-	<dashBoard />, document.getElementById('root')
+	<DashBoard />, document.getElementById('root')
 );

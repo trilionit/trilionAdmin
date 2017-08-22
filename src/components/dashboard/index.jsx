@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-import '../../css/style.css';
-class dashBoard extends Component{
+import Header from '../header/index.jsx'
+class DashBoard extends Component{
 	
 	render(){
-		return();
+		return(
+			<div>
+				<Header/>
+			</div>
+		);
 	}
 }
-export default LoginForm;
+export default DashBoard;

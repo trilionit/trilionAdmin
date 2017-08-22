@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import LogoContainer from './logoContainer';
-import HeaderNav from './headerNav';
+import LogoContainer from './logoContainer.jsx';
+import HeaderNav from './headerNav.jsx';
+import MainNav from './mainNav.jsx';
 class Header extends Component{
 	render(){
 		return(
@@ -10,9 +11,10 @@ class Header extends Component{
 						<LogoContainer />
 						<HeaderNav />
 					</div>
+					<MainNav/>
 				</header>
 			</div>
 		);
 	}
 }
-export default LoginForm;
+export default Header;

@@ -11,4 +11,4 @@ class LogoContainer extends Component{
 		);
 	}
 }
-export default LogoContainer
+export default LogoContainer;
