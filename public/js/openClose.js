@@ -4,7 +4,6 @@ $(function(){
 		var id=$(this).attr('id');
 		var toggleId="#toggle-"+id;
 		var togglePlus=".togglePlus span i#plus-"+id;
-		// $(toggleId).toggle();
 		$(toggleId).toggle('fast', function(){
 			if($(toggleId).is(':hidden')) {
 				$(togglePlus).removeClass("fa-minus");
@@ -12,7 +11,6 @@ $(function(){
 			}else{
 				$(togglePlus).removeClass("fa-plus");
 				$(togglePlus).addClass("fa-minus");
-				console.log(id);
 			}
 		});
 	});
