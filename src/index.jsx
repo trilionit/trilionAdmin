@@ -1,8 +1,14 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from "react-dom";
+import { Router, Route, IndexRoute, browserHistory } from "react-router";
 import './css/style.css';
 import DashBoard from './components/dashBoard/index.jsx';
 
-ReactDom.render(
-	<DashBoard />, document.getElementById('root')
-);
+const root = document.getElementById('root');
+
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path="/" component={DashBoard}>
+    </Route>
+  </Router>,
+root);
