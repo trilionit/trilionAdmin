@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-//import Footer from '../header/footer.jsx';
+import Footer from './footer/index.jsx';
 import TopHeader from './header/index.jsx';
 require('../../css/style.css');
 
@@ -11,7 +11,8 @@ class Layout extends Component{
 			return(
 				<div>
 					<TopHeader />
-
+						{this.props.children}
+					<Footer />
 				</div>
 			);
 	}
