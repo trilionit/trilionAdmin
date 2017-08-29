@@ -4,7 +4,7 @@ class LogoContainer extends Component{
 		return(
 			<div className="logo-container">
 				<a href="#">
-					<i class="fa fa-spinner fa-1x"></i>
+					<i className="fa fa-spinner fa-1x"></i>
 					<span>Trilion</span>
 				</a>
 			</div>

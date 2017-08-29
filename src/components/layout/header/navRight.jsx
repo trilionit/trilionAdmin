@@ -4,8 +4,8 @@ class NavRight extends Component{
 		return(
 			<div className="nav-right">
 				<ul>
-					<li><a href=""><i class="fa fa-users fa-1x"></i> Users</a></li>
-					<li><a href=""><i class="fa fa-cog fa-1x"></i> Settings</a></li>
+					<li><a href=""><i className="fa fa-users fa-1x"></i> Users</a></li>
+					<li><a href=""><i className="fa fa-cog fa-1x"></i> Settings</a></li>
 				</ul>
 			</div>
 		);

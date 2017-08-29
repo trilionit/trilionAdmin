@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+
 import LogoContainer from './logoContainer.jsx';
 import HeaderNav from './headerNav.jsx';
 import MainNav from './mainNav.jsx';
-class Header extends Component{
+
+class TopHeader extends Component{
 	render(){
 		return(
 			<div>
@@ -11,10 +13,10 @@ class Header extends Component{
 						<LogoContainer />
 						<HeaderNav />
 					</div>
-					<MainNav/>
+					<MainNav />
 				</header>
 			</div>
 		);
 	}
 }
-export default Header;
+export default TopHeader;
