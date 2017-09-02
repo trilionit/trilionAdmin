@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, browserHistory } from "react-router";
-import Accounts from './components/Accounts/Accounts.jsx';
+import Accounts from './components/accounts/index.jsx';
 import DashBoard from './components/DashBoard/DashBoard.jsx';
 import Layout from './components/layout/index.jsx';
-
+require('./css/style.css');
 const root = document.getElementById('root');
 
 ReactDOM.render(
