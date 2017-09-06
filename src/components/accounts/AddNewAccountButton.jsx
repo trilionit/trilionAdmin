@@ -6,7 +6,7 @@ class AddNewAccountButton extends Component{
 			<div>
 				<div className="container">
 					<div className="grid-12" align="right">
-						<div className="button-regular"><a href="#">New Account</a></div>
+						<div className="button-regular"><a href="/newAccount">New Account</a></div>
 					</div>
 				</div>
 			</div>

@@ -39,7 +39,7 @@ class ListAccounts extends Component{
 						
 							<tr className="cs-table-hidden-value" id="toggle-1">
 								<td></td>
-								<td colspan="6">
+								<td colSpan={6}>
 									<a href="package.html">view package</a>
 								</td>
 							</tr>
@@ -61,7 +61,7 @@ class ListAccounts extends Component{
 							</tr>
 							<tr className="cs-table-hidden-value" id="toggle-2">
 								<td></td>
-								<td colspan="6">
+								<td colSpan={6}>
 									view package
 								</td>
 							</tr>
@@ -83,7 +83,7 @@ class ListAccounts extends Component{
 							</tr>
 							<tr className="cs-table-hidden-value" id="toggle-3">
 								<td></td>
-								<td colspan="6">
+								<td colSpan={6}>
 									view package
 								</td>
 							</tr>

@@ -3,6 +3,7 @@ import EmailStats from './EmailStats.jsx';
 import AccountStats from './AccountStats.jsx';
 import AddNewAccountButton from './AddNewAccountButton.jsx';
 import ListAccounts from './ListAccounts.jsx';
+import ListEmails from './ListEmails.jsx';
 
 class Accounts extends Component{
 	
@@ -25,6 +26,7 @@ class Accounts extends Component{
 				<AddNewAccountButton />
 				<div className="container">
 					<ListAccounts />
+					<ListEmails />
 				</div>
 			</section>
 			</div>

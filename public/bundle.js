@@ -63,6 +63,10 @@
 	
 	var _index2 = _interopRequireDefault(_index);
 	
+	var _newAccount = __webpack_require__(/*! ./components/accounts/newAccount.jsx */ 238);
+	
+	var _newAccount2 = _interopRequireDefault(_newAccount);
+	
 	var _DashBoard = __webpack_require__(/*! ./components/DashBoard/DashBoard.jsx */ 225);
 	
 	var _DashBoard2 = _interopRequireDefault(_DashBoard);
@@ -83,7 +87,8 @@
 	    _reactRouter.Route,
 	    { path: "/", component: _index4.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _DashBoard2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "Accounts", component: _index2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: "Accounts", component: _index2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: "/newAccount", component: _newAccount2.default })
 	  )
 	), root);
 
@@ -26135,6 +26140,10 @@
 	
 	var _ListAccounts2 = _interopRequireDefault(_ListAccounts);
 	
+	var _ListEmails = __webpack_require__(/*! ./ListEmails.jsx */ 237);
+	
+	var _ListEmails2 = _interopRequireDefault(_ListEmails);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26189,7 +26198,8 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'container' },
-							_react2.default.createElement(_ListAccounts2.default, null)
+							_react2.default.createElement(_ListAccounts2.default, null),
+							_react2.default.createElement(_ListEmails2.default, null)
 						)
 					)
 				);
@@ -27202,7 +27212,7 @@
 								{ className: "button-regular" },
 								_react2.default.createElement(
 									"a",
-									{ href: "#" },
+									{ href: "/newAccount" },
 									"New Account"
 								)
 							)
@@ -27364,7 +27374,7 @@
 										_react2.default.createElement("td", null),
 										_react2.default.createElement(
 											"td",
-											{ colspan: "6" },
+											{ colSpan: 6 },
 											_react2.default.createElement(
 												"a",
 												{ href: "package.html" },
@@ -27430,7 +27440,7 @@
 										_react2.default.createElement("td", null),
 										_react2.default.createElement(
 											"td",
-											{ colspan: "6" },
+											{ colSpan: 6 },
 											"view package"
 										)
 									),
@@ -27492,7 +27502,7 @@
 										_react2.default.createElement("td", null),
 										_react2.default.createElement(
 											"td",
-											{ colspan: "6" },
+											{ colSpan: 6 },
 											"view package"
 										)
 									)
@@ -27508,6 +27518,274 @@
 	}(_react.Component);
 	
 	exports.default = ListAccounts;
+
+/***/ }),
+/* 237 */
+/*!************************************************!*\
+  !*** ./src/components/accounts/ListEmails.jsx ***!
+  \************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ListEmails = function (_Component) {
+		_inherits(ListEmails, _Component);
+	
+		function ListEmails() {
+			_classCallCheck(this, ListEmails);
+	
+			return _possibleConstructorReturn(this, (ListEmails.__proto__ || Object.getPrototypeOf(ListEmails)).apply(this, arguments));
+		}
+	
+		_createClass(ListEmails, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "column-30" },
+					_react2.default.createElement(
+						"div",
+						{ className: "page-container-white-bg" },
+						_react2.default.createElement(
+							"div",
+							{ className: "email-container" },
+							_react2.default.createElement(
+								"div",
+								{ className: "email-user-icon-container" },
+								_react2.default.createElement(
+									"div",
+									{ className: "email-user-icon" },
+									_react2.default.createElement("i", { className: "fa fa-user fa-2x" })
+								)
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "email-text-container" },
+								_react2.default.createElement(
+									"h5",
+									null,
+									"11:20 am"
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									"Prince Osei-Akyeampong"
+								),
+								"Domain and Hosting Registration"
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "email-container" },
+							_react2.default.createElement(
+								"div",
+								{ className: "email-user-icon-container" },
+								_react2.default.createElement(
+									"div",
+									{ className: "email-user-icon" },
+									_react2.default.createElement("i", { className: "fa fa-user fa-2x" })
+								)
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "email-text-container" },
+								_react2.default.createElement(
+									"h5",
+									null,
+									"11:20 am"
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									"Prince Osei-Akyeampong"
+								),
+								"Domain and Hosting Registration"
+							)
+						)
+					)
+				);
+			}
+		}]);
+	
+		return ListEmails;
+	}(_react.Component);
+	
+	exports.default = ListEmails;
+
+/***/ }),
+/* 238 */
+/*!************************************************!*\
+  !*** ./src/components/accounts/newAccount.jsx ***!
+  \************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _AddNewAccountButton = __webpack_require__(/*! ./AddNewAccountButton.jsx */ 235);
+	
+	var _AddNewAccountButton2 = _interopRequireDefault(_AddNewAccountButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var NewAccount = function (_Component) {
+		_inherits(NewAccount, _Component);
+	
+		function NewAccount() {
+			_classCallCheck(this, NewAccount);
+	
+			return _possibleConstructorReturn(this, (NewAccount.__proto__ || Object.getPrototypeOf(NewAccount)).apply(this, arguments));
+		}
+	
+		_createClass(NewAccount, [{
+			key: 'render',
+			value: function render() {
+	
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'section',
+						null,
+						_react2.default.createElement(_AddNewAccountButton2.default, null),
+						_react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'page-header' },
+								_react2.default.createElement(
+									'h2',
+									null,
+									'Web Accounts'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'section',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'form-main-container' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'form-header' },
+									_react2.default.createElement(
+										'h3',
+										null,
+										'New Account'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'form-container' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'alert-container alert-error' },
+										_react2.default.createElement(
+											'strong',
+											null,
+											'Something Wrong !'
+										),
+										' Check and try again'
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'form-elements' },
+										_react2.default.createElement(
+											'label',
+											{ 'for': 'name' },
+											'Domain:'
+										),
+										_react2.default.createElement('input', { type: 'text', name: '' }),
+										_react2.default.createElement(
+											'label',
+											{ 'for': 'email' },
+											'User Name:'
+										),
+										_react2.default.createElement('input', { type: 'text', name: '' }),
+										_react2.default.createElement(
+											'label',
+											{ 'for': 'email' },
+											'Password:'
+										),
+										_react2.default.createElement('input', { type: 'text', name: '' }),
+										_react2.default.createElement(
+											'label',
+											{ 'for': 'email' },
+											'Choose Package'
+										),
+										_react2.default.createElement(
+											'select',
+											{ name: 'package' },
+											_react2.default.createElement(
+												'option',
+												null,
+												'Basic'
+											),
+											_react2.default.createElement(
+												'option',
+												null,
+												'Premium'
+											)
+										),
+										_react2.default.createElement(
+											'label',
+											{ 'for': 'email' },
+											'Contact Email:'
+										),
+										_react2.default.createElement('input', { type: 'text', name: '' }),
+										_react2.default.createElement('input', { type: 'submit', name: '', className: 'button-submit', value: 'Add Email' })
+									)
+								)
+							)
+						)
+					)
+				);
+			}
+		}]);
+	
+		return NewAccount;
+	}(_react.Component);
+	
+	exports.default = NewAccount;
 
 /***/ })
 /******/ ]);
