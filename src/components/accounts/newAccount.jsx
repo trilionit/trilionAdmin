@@ -2,13 +2,28 @@ import React, {Component} from 'react';
 import AddNewAccountButton from './AddNewAccountButton.jsx';
 
 class NewAccount extends Component{
+	constructor(props){
+		super(props)
+		this.state={
+			url:"",
+			buttonName:""
+		}
+		//this.handleClickedButton=this.handleClickedButton.bind(this);
+	}
+	clickedButton(){
+		this.setState({
+			url:"/account",
+			buttonName:"Go Back"
+		})
+	}
+	
 	
 	render(){
-
+		console.log(this.state.url);
 		return(
 			<div>
 			<section>	
-				<AddNewAccountButton />	
+				<AddNewAccountButton clickedButton={clickedButton} />	
 				<div className="container">
 					<div className="page-header">
 						<h2>Web Accounts</h2>

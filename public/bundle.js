@@ -26155,10 +26155,16 @@
 	var Accounts = function (_Component) {
 		_inherits(Accounts, _Component);
 	
-		function Accounts() {
+		function Accounts(props) {
 			_classCallCheck(this, Accounts);
 	
-			return _possibleConstructorReturn(this, (Accounts.__proto__ || Object.getPrototypeOf(Accounts)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (Accounts.__proto__ || Object.getPrototypeOf(Accounts)).call(this, props));
+	
+			_this.state = {
+				url: "",
+				buttonName: ""
+				//this.handleClickedButton=this.handleClickedButton.bind(this);
+			};return _this;
 		}
 	
 		_createClass(Accounts, [{
@@ -26194,7 +26200,7 @@
 					_react2.default.createElement(
 						'section',
 						null,
-						_react2.default.createElement(_AddNewAccountButton2.default, null),
+						_react2.default.createElement(_AddNewAccountButton2.default, { clickedButton: this.handleClickedButton }),
 						_react2.default.createElement(
 							'div',
 							{ className: 'container' },
@@ -27189,15 +27195,31 @@
 	var AddNewAccountButton = function (_Component) {
 		_inherits(AddNewAccountButton, _Component);
 	
-		function AddNewAccountButton() {
+		function AddNewAccountButton(props) {
 			_classCallCheck(this, AddNewAccountButton);
 	
-			return _possibleConstructorReturn(this, (AddNewAccountButton.__proto__ || Object.getPrototypeOf(AddNewAccountButton)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (AddNewAccountButton.__proto__ || Object.getPrototypeOf(AddNewAccountButton)).call(this, props));
+	
+			_this.state = {
+				url: "/newAccount",
+				buttonName: "New Account"
+			};
+			return _this;
 		}
 	
 		_createClass(AddNewAccountButton, [{
+			key: "handleClickedButton",
+			value: function handleClickedButton(event) {
+				event.preventDefault();
+	
+				this.setState({
+					clickedButton: clickedButton
+				});
+			}
+		}, {
 			key: "render",
 			value: function render() {
+				console.log(this.props);
 				return _react2.default.createElement(
 					"div",
 					null,
@@ -27212,8 +27234,8 @@
 								{ className: "button-regular" },
 								_react2.default.createElement(
 									"a",
-									{ href: "/newAccount" },
-									"New Account"
+									{ href: this.state.url, onClick: this.handleClickedButton.bind(this) },
+									this.state.buttonName
 								)
 							)
 						)
@@ -27664,23 +27686,37 @@
 	var NewAccount = function (_Component) {
 		_inherits(NewAccount, _Component);
 	
-		function NewAccount() {
+		function NewAccount(props) {
 			_classCallCheck(this, NewAccount);
 	
-			return _possibleConstructorReturn(this, (NewAccount.__proto__ || Object.getPrototypeOf(NewAccount)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (NewAccount.__proto__ || Object.getPrototypeOf(NewAccount)).call(this, props));
+	
+			_this.state = {
+				url: "",
+				buttonName: ""
+				//this.handleClickedButton=this.handleClickedButton.bind(this);
+			};return _this;
 		}
 	
 		_createClass(NewAccount, [{
+			key: 'clickedButton',
+			value: function clickedButton() {
+				this.setState({
+					url: "/account",
+					buttonName: "Go Back"
+				});
+			}
+		}, {
 			key: 'render',
 			value: function render() {
-	
+				console.log(this.state.url);
 				return _react2.default.createElement(
 					'div',
 					null,
 					_react2.default.createElement(
 						'section',
 						null,
-						_react2.default.createElement(_AddNewAccountButton2.default, null),
+						_react2.default.createElement(_AddNewAccountButton2.default, { clickedButton: clickedButton }),
 						_react2.default.createElement(
 							'div',
 							{ className: 'container' },

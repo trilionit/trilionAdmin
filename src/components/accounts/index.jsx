@@ -6,7 +6,15 @@ import ListAccounts from './ListAccounts.jsx';
 import ListEmails from './ListEmails.jsx';
 
 class Accounts extends Component{
-	
+	constructor(props){
+		super(props)
+		this.state={
+			url:"",
+			buttonName:""
+		}
+		//this.handleClickedButton=this.handleClickedButton.bind(this);
+	}
+
 	render(){
 
 		return(
@@ -23,7 +31,7 @@ class Accounts extends Component{
 				</div>
 			</section>
 			<section>
-				<AddNewAccountButton />
+				<AddNewAccountButton clickedButton={this.handleClickedButton} />
 				<div className="container">
 					<ListAccounts />
 					<ListEmails />
