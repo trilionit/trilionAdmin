@@ -17,6 +17,11 @@ class NewAccount extends Component{
 	// 	})
 	// }
 	
+	handleDomainInput(event){
+		event.preventDefault();
+		let inputDomain=event.target.value;
+		console.log(inputDomain);
+	}
 	
 	render(){
 		let newAccount={
@@ -47,7 +52,7 @@ class NewAccount extends Component{
 								<label for="name">
 									Domain:
 								</label>
-								<input type="text" name=""/>
+								<input type="text" name="" onChange={this.handleDomainInput.bind(this)} />
 								<label for="email">
 									User Name:
 								</label>

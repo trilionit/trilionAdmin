@@ -26441,7 +26441,6 @@
 			// 	})
 			// }
 			value: function render() {
-				console.log(this.props);
 				return _react2.default.createElement(
 					"div",
 					null,
@@ -26915,7 +26914,7 @@
 		}
 	
 		_createClass(NewAccount, [{
-			key: 'render',
+			key: 'handleDomainInput',
 	
 			// constructor(props){
 			// 	super(props)
@@ -26932,7 +26931,13 @@
 			// 	})
 			// }
 	
-	
+			value: function handleDomainInput(event) {
+				event.preventDefault();
+				var inputDomain = event.target.value;
+				console.log(inputDomain);
+			}
+		}, {
+			key: 'render',
 			value: function render() {
 				var newAccount = {
 					url: "/accounts",
@@ -26998,7 +27003,7 @@
 											{ 'for': 'name' },
 											'Domain:'
 										),
-										_react2.default.createElement('input', { type: 'text', name: '' }),
+										_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleDomainInput.bind(this) }),
 										_react2.default.createElement(
 											'label',
 											{ 'for': 'email' },
