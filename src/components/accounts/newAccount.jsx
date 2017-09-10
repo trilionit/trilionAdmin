@@ -2,28 +2,31 @@ import React, {Component} from 'react';
 import AddNewAccountButton from './AddNewAccountButton.jsx';
 
 class NewAccount extends Component{
-	constructor(props){
-		super(props)
-		this.state={
-			url:"",
-			buttonName:""
-		}
-		//this.handleClickedButton=this.handleClickedButton.bind(this);
-	}
-	clickedButton(){
-		this.setState({
-			url:"/account",
-			buttonName:"Go Back"
-		})
-	}
+	// constructor(props){
+	// 	super(props)
+	// 	this.state={
+	// 		url:"",
+	// 		buttonName:""
+	// 	}
+	// 	//this.handleClickedButton=this.handleClickedButton.bind(this);
+	// }
+	// clickedButton(){
+	// 	this.setState({
+	// 		url:"/account",
+	// 		buttonName:"Go Back"
+	// 	})
+	// }
 	
 	
 	render(){
-		console.log(this.state.url);
+		let newAccount={
+			url:"/accounts",
+			pageName:"Go Back"
+		}
 		return(
 			<div>
 			<section>	
-				<AddNewAccountButton clickedButton={clickedButton} />	
+				<AddNewAccountButton clickedButton={newAccount} />	
 				<div className="container">
 					<div className="page-header">
 						<h2>Web Accounts</h2>
