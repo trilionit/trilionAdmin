@@ -47,6 +47,7 @@ class NewAccount extends Component{
 	}
 	handleSubmitForm(event){
 		event.preventDefault();
+		console.log("submitted...");
 		axios.post('/acounts/add', this.state)
   		.then((response) => {
   			console.log(response);

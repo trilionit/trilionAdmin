@@ -26968,6 +26968,7 @@
 			key: 'handleSubmitForm',
 			value: function handleSubmitForm(event) {
 				event.preventDefault();
+				console.log("submitted...");
 				axios.post('/acounts/add', this.state).then(function (response) {
 					console.log(response);
 					// this.props.setQueryResults(response.data);
