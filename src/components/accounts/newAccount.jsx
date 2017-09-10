@@ -1,26 +1,58 @@
 import React, {Component} from 'react';
 import AddNewAccountButton from './AddNewAccountButton.jsx';
+const axios = require('axios');
 
 class NewAccount extends Component{
-	// constructor(props){
-	// 	super(props)
-	// 	this.state={
-	// 		url:"",
-	// 		buttonName:""
-	// 	}
-	// 	//this.handleClickedButton=this.handleClickedButton.bind(this);
-	// }
-	// clickedButton(){
-	// 	this.setState({
-	// 		url:"/account",
-	// 		buttonName:"Go Back"
-	// 	})
-	// }
+	constructor(props){
+		super(props)
+		this.state={
+			domain:"",
+			userName:"",
+			password:"",
+			package:"",
+			email:""
+		}
+	}
+	
 	
 	handleDomainInput(event){
 		event.preventDefault();
-		let inputDomain=event.target.value;
-		console.log(inputDomain);
+		this.setState({
+			domain:event.target.value
+		})
+	}
+	handleUserNameInput(event){
+		event.preventDefault();
+		this.setState({
+			userName:event.target.value
+		})
+	}
+	handlePasswordInput(event){
+		event.preventDefault();
+		this.setState({
+			password:event.target.value
+		})
+	}
+	handlePackageInput(event){
+		event.preventDefault();
+		this.setState({
+			package:event.target.value
+		})
+	}
+	handleEmailInput(event){
+		event.preventDefault();
+		this.setState({
+			email:event.target.value
+		})
+	}
+	handleSubmitForm(event){
+		event.preventDefault();
+		axios.post('/acounts/add', this.state)
+  		.then((response) => {
+  			console.log(response);
+  			// this.props.setQueryResults(response.data);
+		});
+		
 	}
 	
 	render(){
@@ -53,26 +85,26 @@ class NewAccount extends Component{
 									Domain:
 								</label>
 								<input type="text" name="" onChange={this.handleDomainInput.bind(this)} />
-								<label for="email">
+								<label for="userName">
 									User Name:
 								</label>
-								<input type="text" name=""/>
-								<label for="email">
+								<input type="text" name="" onChange={this.handleUserNameInput.bind(this)} />
+								<label for="password">
 									Password:
 								</label>
-								<input type="text" name=""/>
-								<label for="email">
+								<input type="text" name="" onChange={this.handlePasswordInput.bind(this)} />
+								<label for="package">
 									Choose Package
 								</label>
-								<select name="package">
+								<select name="package" onChange={this.handlePackageInput.bind(this)}>
 									<option>Basic</option>
 									<option>Premium</option>
 								</select>
 								<label for="email">
 									Contact Email:
 								</label>
-								<input type="text" name=""/>
-								<input type="submit" name="" className="button-submit" value="Add Email" />
+								<input type="text" name="" onChange={this.handleEmailInput.bind(this)} />
+								<input type="submit" name="" className="button-submit" value="Add Email" onSubmit={this.handleSubmitForm.bind(this)} />
 							</div>
 						</div>
 					</div>
