@@ -26896,6 +26896,10 @@
 	
 	var _AddNewAccountButton2 = _interopRequireDefault(_AddNewAccountButton);
 	
+	var _errorContainer = __webpack_require__(/*! ./errorContainer.jsx */ 266);
+	
+	var _errorContainer2 = _interopRequireDefault(_errorContainer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26915,11 +26919,18 @@
 			var _this = _possibleConstructorReturn(this, (NewAccount.__proto__ || Object.getPrototypeOf(NewAccount)).call(this, props));
 	
 			_this.state = {
-				domain: "",
-				userName: "",
-				password: "",
-				package: "",
-				email: ""
+				processForm: {
+					domain: "",
+					userName: "",
+					password: "",
+					package: "basic",
+					email: ""
+				},
+				displayError: {
+					error: 0,
+					element: "",
+					errorMessage: ""
+				}
 			};
 			return _this;
 		}
@@ -26969,10 +26980,21 @@
 			value: function handleSubmitForm(event) {
 				event.preventDefault();
 				console.log("submitted...");
-				axios.post('/acounts/add', this.state).then(function (response) {
-					console.log(response);
-					// this.props.setQueryResults(response.data);
-				});
+				if (this.state.processForm.domain.length < 3) {
+					this.setState({
+						displayError: {
+							error: 1,
+							element: "Domain",
+							errorMessage: "Invalid Domain Name"
+						}
+	
+					});
+				} else {
+					axios.post('/accounts/add', this.state.processForm).then(function (response) {
+						console.log(response);
+						// this.props.setQueryResults(response.data);
+					});
+				}
 			}
 		}, {
 			key: 'render',
@@ -26981,6 +27003,7 @@
 					url: "/accounts",
 					pageName: "Go Back"
 				};
+	
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -27021,65 +27044,60 @@
 									)
 								),
 								_react2.default.createElement(
-									'div',
-									{ className: 'form-container' },
+									'form',
+									{ id: 'new-account', onSubmit: this.handleSubmitForm.bind(this) },
 									_react2.default.createElement(
 										'div',
-										{ className: 'alert-container alert-error' },
+										{ className: 'form-container' },
+										_react2.default.createElement('errorContainer', { displayError: this.state.displayError }),
 										_react2.default.createElement(
-											'strong',
-											null,
-											'Something Wrong !'
-										),
-										' Check and try again'
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'form-elements' },
-										_react2.default.createElement(
-											'label',
-											{ 'for': 'name' },
-											'Domain:'
-										),
-										_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleDomainInput.bind(this) }),
-										_react2.default.createElement(
-											'label',
-											{ 'for': 'userName' },
-											'User Name:'
-										),
-										_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleUserNameInput.bind(this) }),
-										_react2.default.createElement(
-											'label',
-											{ 'for': 'password' },
-											'Password:'
-										),
-										_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handlePasswordInput.bind(this) }),
-										_react2.default.createElement(
-											'label',
-											{ 'for': 'package' },
-											'Choose Package'
-										),
-										_react2.default.createElement(
-											'select',
-											{ name: 'package', onChange: this.handlePackageInput.bind(this) },
+											'div',
+											{ className: 'form-elements' },
 											_react2.default.createElement(
-												'option',
-												null,
-												'Basic'
+												'label',
+												{ 'for': 'name' },
+												'Domain:'
+											),
+											_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleDomainInput.bind(this) }),
+											_react2.default.createElement(
+												'label',
+												{ 'for': 'userName' },
+												'User Name:'
+											),
+											_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleUserNameInput.bind(this) }),
+											_react2.default.createElement(
+												'label',
+												{ 'for': 'password' },
+												'Password:'
+											),
+											_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handlePasswordInput.bind(this) }),
+											_react2.default.createElement(
+												'label',
+												{ 'for': 'package' },
+												'Choose Package'
 											),
 											_react2.default.createElement(
-												'option',
-												null,
-												'Premium'
-											)
-										),
-										_react2.default.createElement(
-											'label',
-											{ 'for': 'email' },
-											'Contact Email:'
-										),
-										_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleEmailInput.bind(this) }),
-										_react2.default.createElement('input', { type: 'submit', name: '', className: 'button-submit', value: 'Add Email', onSubmit: this.handleSubmitForm.bind(this) })
+												'select',
+												{ name: 'package', value: this.state.package, onChange: this.handlePackageInput.bind(this) },
+												_react2.default.createElement(
+													'option',
+													null,
+													'Basic'
+												),
+												_react2.default.createElement(
+													'option',
+													null,
+													'Premium'
+												)
+											),
+											_react2.default.createElement(
+												'label',
+												{ 'for': 'email' },
+												'Contact Email:'
+											),
+											_react2.default.createElement('input', { type: 'text', name: '', onChange: this.handleEmailInput.bind(this) }),
+											_react2.default.createElement('input', { type: 'submit', className: 'button-submit', value: 'Add Account' })
+										)
 									)
 								)
 							)
@@ -29486,6 +29504,69 @@
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"style__container___1KoiK","logo-container":"style__logo-container___2WfjX","header-nav":"style__header-nav___1YBpt","current-item":"style__current-item___27VCi","sub-menu":"style__sub-menu___1JQ6J","sub-menu-header":"style__sub-menu-header___3OmeS","nav-left":"style__nav-left___3FO0A","active":"style__active___1kDoI","nav-right":"style__nav-right___3dH5Y","nav":"style__nav___1cS7E","page-header":"style__page-header___1LqX-","grid-12":"style__grid-12___3ioc1","grid-2":"style__grid-2___2DhDZ","grid-3":"style__grid-3___3Cqjm","grid-4":"style__grid-4___ShjBq","column-10":"style__column-10___3AG4k","column-20":"style__column-20___IzL-h","column-30":"style__column-30___1rlCK","column-40":"style__column-40___18mEF","column-50":"style__column-50___1L_bR","column-60":"style__column-60___1yt0E","column-70":"style__column-70___1YcDq","column-80":"style__column-80___vDBxI","column-90":"style__column-90___GOk0_","quick-stats-container":"style__quick-stats-container___2WUK4","quick-container":"style__quick-container___3Q8dX","quick-icon":"style__quick-icon___1azjf","quick-text":"style__quick-text___16nIF","quick-text-top":"style__quick-text-top___318N4","quick-text-bottom":"style__quick-text-bottom___1ODrP","quick-last-update-container":"style__quick-last-update-container___sR8wl","page-container-white-bg":"style__page-container-white-bg___2IYvE","page-container-header":"style__page-container-header___2axFN","page-main-header":"style__page-main-header___w2J_M","cs-table":"style__cs-table___2oEYA","togglePlus":"style__togglePlus___aLAok","cs-table-hidden-value":"style__cs-table-hidden-value___1NEVc","icon-color":"style__icon-color___2SOcu","responsive-table":"style__responsive-table___5KPBG","table-header":"style__table-header___1q8XP","email-container":"style__email-container___VNrM-","email-user-icon-container":"style__email-user-icon-container___X6xXo","email-user-icon":"style__email-user-icon___16EQD","email-text-container":"style__email-text-container___1dhWz","buttons-container-right":"style__buttons-container-right___hOIof","button-regular":"style__button-regular___mRYnf","button-add":"style__button-add___3XOqC","button-delete":"style__button-delete___3ED6c","button-submit":"style__button-submit___Q_g5j","form-main-container":"style__form-main-container___veEVF","form-header":"style__form-header___2rtwy","form-container":"style__form-container___2GF8i","alert-container":"style__alert-container___2lzuF","alert-error":"style__alert-error___2QhIe","form-elements":"style__form-elements___1EZdv","submit":"style__submit___AaU-t","footer":"style__footer___3-RVa","left":"style__left___3rixz","right":"style__right___sfUg4"};
+
+/***/ }),
+/* 265 */,
+/* 266 */
+/*!****************************************************!*\
+  !*** ./src/components/accounts/errorContainer.jsx ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var errorContainer = function (_Component) {
+		_inherits(errorContainer, _Component);
+	
+		function errorContainer(props) {
+			_classCallCheck(this, errorContainer);
+	
+			return _possibleConstructorReturn(this, (errorContainer.__proto__ || Object.getPrototypeOf(errorContainer)).call(this, props));
+		}
+	
+		_createClass(errorContainer, [{
+			key: "render",
+			value: function render() {
+				console.log(this.props);
+				if (this.props.displayError.error == 1) {
+					return _react2.default.createElement(
+						"div",
+						{ className: "alert-container alert-error" },
+						_react2.default.createElement(
+							"strong",
+							null,
+							this.props.displayError.element,
+							" !"
+						),
+						" ",
+						this.props.displayError.errorMessage
+					);
+				}
+			}
+		}]);
+	
+		return errorContainer;
+	}(_react.Component);
+	
+	exports.default = errorContainer;
 
 /***/ })
 /******/ ]);

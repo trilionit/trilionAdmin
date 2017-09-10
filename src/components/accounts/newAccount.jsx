@@ -1,16 +1,24 @@
 import React, {Component} from 'react';
 import AddNewAccountButton from './AddNewAccountButton.jsx';
+import errorContainer from './errorContainer.jsx';
 const axios = require('axios');
 
 class NewAccount extends Component{
 	constructor(props){
 		super(props)
 		this.state={
-			domain:"",
-			userName:"",
-			password:"",
-			package:"",
-			email:""
+			processForm:{
+				domain:"",
+				userName:"",
+				password:"",
+				package:"basic",
+				email:""
+			},
+			displayError:{
+				error:0,
+				element:"",
+				errorMessage:""
+			}	
 		}
 	}
 	
@@ -48,11 +56,25 @@ class NewAccount extends Component{
 	handleSubmitForm(event){
 		event.preventDefault();
 		console.log("submitted...");
-		axios.post('/acounts/add', this.state)
-  		.then((response) => {
-  			console.log(response);
-  			// this.props.setQueryResults(response.data);
-		});
+		if(this.state.processForm.domain.length <3){
+			this.setState({
+				displayError:{
+					error:1,
+					element:"Domain",
+					errorMessage:"Invalid Domain Name"	
+				}
+				
+			})
+			
+		}
+		else{
+			axios.post('/accounts/add', this.state.processForm)
+  			.then((response) => {
+  				console.log(response);
+  				// this.props.setQueryResults(response.data);
+			});
+		}
+		
 		
 	}
 	
@@ -61,6 +83,7 @@ class NewAccount extends Component{
 			url:"/accounts",
 			pageName:"Go Back"
 		}
+		
 		return(
 			<div>
 			<section>	
@@ -77,37 +100,38 @@ class NewAccount extends Component{
 						<div className="form-header">
 							<h3>New Account</h3>
 						</div>
-						<div className="form-container">
-							<div className="alert-container alert-error">
-								<strong>Something Wrong !</strong> Check and try again
+						<form id="new-account" onSubmit={this.handleSubmitForm.bind(this)}>
+							<div className="form-container">
+								<errorContainer displayError={this.state.displayError} />
+								
+								<div className="form-elements">
+									<label for="name">
+										Domain:
+									</label>
+									<input type="text" name="" onChange={this.handleDomainInput.bind(this)} />
+									<label for="userName">
+										User Name:
+									</label>
+									<input type="text" name="" onChange={this.handleUserNameInput.bind(this)} />
+									<label for="password">
+										Password:
+									</label>
+									<input type="text" name="" onChange={this.handlePasswordInput.bind(this)} />
+									<label for="package">
+										Choose Package
+									</label>
+									<select name="package" value={this.state.package} onChange={this.handlePackageInput.bind(this)}>
+										<option>Basic</option>
+										<option>Premium</option>
+									</select>
+									<label for="email">
+										Contact Email:
+									</label>
+									<input type="text" name="" onChange={this.handleEmailInput.bind(this)} />
+									<input type="submit" className="button-submit" value="Add Account" />
+								</div>
 							</div>
-							<div className="form-elements">
-								<label for="name">
-									Domain:
-								</label>
-								<input type="text" name="" onChange={this.handleDomainInput.bind(this)} />
-								<label for="userName">
-									User Name:
-								</label>
-								<input type="text" name="" onChange={this.handleUserNameInput.bind(this)} />
-								<label for="password">
-									Password:
-								</label>
-								<input type="text" name="" onChange={this.handlePasswordInput.bind(this)} />
-								<label for="package">
-									Choose Package
-								</label>
-								<select name="package" onChange={this.handlePackageInput.bind(this)}>
-									<option>Basic</option>
-									<option>Premium</option>
-								</select>
-								<label for="email">
-									Contact Email:
-								</label>
-								<input type="text" name="" onChange={this.handleEmailInput.bind(this)} />
-								<input type="submit" name="" className="button-submit" value="Add Email" onSubmit={this.handleSubmitForm.bind(this)} />
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</section>

@@ -7,8 +7,8 @@ const router = express.Router();
 
 //route for adding airports
 router.post("/accounts/add", function(req, res){
-	let data=req.body;
-	console.log(data);
+	//let data=req.body;
+	res.send(req.body);
 
 });
 module.exports = router;
