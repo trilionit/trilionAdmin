@@ -7,73 +7,49 @@ class NewAccount extends Component{
 	constructor(props){
 		super(props)
 		this.state={
-			processForm:{
-				domain:"",
-				userName:"",
-				password:"",
-				package:"basic",
-				email:""
-			},
-			displayError:{
-				error:0,
-				element:"",
-				errorMessage:""
-			}	
+			domain:'',
+			userName:'',
+			password:'',
+			package:'',
+			email:'',
+			displayError:{}
+		}
+	}
+
+	handleValidation(){
+		let checkDomain=this.state.domain;
+		let checkUserName=this.state.userName;
+		let checkPassWord=this.state.password;
+		let checkPackage=this.state.package;
+		let checkEMail=this.state.email;
+
+		//check domain
+		if(!checkDomain || !checkUserName){
+			console.log("error");
 		}
 	}
 	
+	handleInput(event){
+		event.preventDefault();
+		let name=event.target.name;
+		let value=event.target.value;
+		this.setState({
+			[name]:value
+		});
+
+	}
 	
-	handleDomainInput(event){
-		event.preventDefault();
-		this.setState({
-			domain:event.target.value
-		})
-	}
-	handleUserNameInput(event){
-		event.preventDefault();
-		this.setState({
-			userName:event.target.value
-		})
-	}
-	handlePasswordInput(event){
-		event.preventDefault();
-		this.setState({
-			password:event.target.value
-		})
-	}
-	handlePackageInput(event){
-		event.preventDefault();
-		this.setState({
-			package:event.target.value
-		})
-	}
-	handleEmailInput(event){
-		event.preventDefault();
-		this.setState({
-			email:event.target.value
-		})
-	}
 	handleSubmitForm(event){
 		event.preventDefault();
 		console.log("submitted...");
-		if(this.state.processForm.domain.length <3){
-			this.setState({
-				displayError:{
-					error:1,
-					element:"Domain",
-					errorMessage:"Invalid Domain Name"	
-				}
-				
-			})
-			
-		}
-		else{
-			axios.post('/accounts/add', this.state.processForm)
-  			.then((response) => {
-  				console.log(response);
-  				// this.props.setQueryResults(response.data);
-			});
-		}
+		
+		// else{
+		// 	axios.post('/accounts/add', this.state.processForm)
+  // 			.then((response) => {
+  // 				console.log(response);
+  // 				// this.props.setQueryResults(response.data);
+		// 	});
+		// }
 		
 		
 	}
@@ -108,15 +84,15 @@ class NewAccount extends Component{
 									<label for="name">
 										Domain:
 									</label>
-									<input type="text" name="" onChange={this.handleDomainInput.bind(this)} />
+									<input type="text" name="domain" onChange={this.handleDomainInput.bind(this)} />
 									<label for="userName">
 										User Name:
 									</label>
-									<input type="text" name="" onChange={this.handleUserNameInput.bind(this)} />
+									<input type="text" name="userName" onChange={this.handleUserNameInput.bind(this)} />
 									<label for="password">
 										Password:
 									</label>
-									<input type="text" name="" onChange={this.handlePasswordInput.bind(this)} />
+									<input type="text" name="password" onChange={this.handlePasswordInput.bind(this)} />
 									<label for="package">
 										Choose Package
 									</label>
@@ -127,7 +103,7 @@ class NewAccount extends Component{
 									<label for="email">
 										Contact Email:
 									</label>
-									<input type="text" name="" onChange={this.handleEmailInput.bind(this)} />
+									<input type="text" name="email" onChange={this.handleEmailInput.bind(this)} />
 									<input type="submit" className="button-submit" value="Add Account" />
 								</div>
 							</div>
