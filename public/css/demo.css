@@ -572,6 +572,8 @@ section{
 }
 .button-submit{
     width:auto;
+    border:none;
+    margin-top: 10px;
     background:#03C587;
     color:#FFF;
     padding:10px 15px;
@@ -641,7 +643,7 @@ section{
     color: #333;
     margin:10px 0;
 }
-.form-elements input[type=text], .form-elements input[type=email], .form-elements select{
+.form-elements input[type=text],.form-elements input[type=password], .form-elements input[type=email], .form-elements select{
     padding: 10px 12px;
     border:1px solid #ddd;
     box-sizing: border-box;

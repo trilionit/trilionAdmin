@@ -12,46 +12,80 @@ class NewAccount extends Component{
 			password:'',
 			package:'',
 			email:'',
-			displayError:{}
+			errors:{
+				domainError:'',
+				userNameError:'',
+				passwordError:'',
+				emailError:''
+			}			
+			
 		}
 	}
 
 	handleValidation(){
-		let checkDomain=this.state.domain;
-		let checkUserName=this.state.userName;
-		let checkPassWord=this.state.password;
-		let checkPackage=this.state.package;
-		let checkEMail=this.state.email;
-
-		//check domain
-		if(!checkDomain || !checkUserName){
-			console.log("error");
+		let isError=false;
+		let errors={
+			domainError:'',
+			userNameError:'',
+			passwordError:'',
+			emailError:''
 		}
+		if(this.state.domain.length <6){
+			isError=true;
+			errors.domainError="Domain Name needs to be atleast 6 characters long";
+		}
+		// if(this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+		// 	isError=true;
+		// 	errors.emailError="Email is Invalid";
+		// }
+		if(this.state.email.indexOf("@")===-1){
+			isError=true;
+			errors.emailError="Email is Invalid";
+		}
+		if(this.state.password.length <8){
+			isError=true;
+			errors.passwordError="Password needs to be atleast 8 characters long";
+		}
+		if(this.state.userName.length <6){
+			isError=true;
+			errors.userNameError="Username needs to be atleast 6 characters long";
+		}
+		if(this.state.email.length <6){
+			isError=true;
+			errors.emailError="Email needs to be atleast 6 characters long";
+		}
+		this.setState({		
+			errors:errors
+		});
+		console.log(errors);
+		return isError;  		
 	}
+
 	
 	handleInput(event){
 		event.preventDefault();
 		let name=event.target.name;
 		let value=event.target.value;
-		this.setState({
-			[name]:value
-		});
-
+		this.setState({[name]:value});
 	}
 	
 	handleSubmitForm(event){
 		event.preventDefault();
-		console.log("submitted...");
-		
-		// else{
-		// 	axios.post('/accounts/add', this.state.processForm)
-  // 			.then((response) => {
-  // 				console.log(response);
-  // 				// this.props.setQueryResults(response.data);
-		// 	});
-		// }
-		
-		
+		let err=this.handleValidation();
+		if(!err){
+			this.state.errors={
+				domainError:'',
+				userNameError:'',
+				passwordError:'',
+				emailError:''
+			}
+			console.log("submitted");
+		}		
+		// axios.post('/accounts/add', this.state)
+		// .then((response) => {
+		// 	console.log(response);
+		// 	// this.props.setQueryResults(response.data);
+		// });		
 	}
 	
 	render(){
@@ -78,32 +112,32 @@ class NewAccount extends Component{
 						</div>
 						<form id="new-account" onSubmit={this.handleSubmitForm.bind(this)}>
 							<div className="form-container">
-								<errorContainer displayError={this.state.displayError} />
+								<errorContainer formErrors={this.state.formErrors} />
 								
 								<div className="form-elements">
-									<label for="name">
+									<label htmlFor="name">
 										Domain:
 									</label>
-									<input type="text" name="domain" onChange={this.handleDomainInput.bind(this)} />
-									<label for="userName">
+									<input type="text" name="domain" onChange={this.handleInput.bind(this)} />
+									<label htmlFor="userName">
 										User Name:
 									</label>
-									<input type="text" name="userName" onChange={this.handleUserNameInput.bind(this)} />
-									<label for="password">
+									<input type="text" name="userName" onChange={this.handleInput.bind(this)} />
+									<label htmlFor="password">
 										Password:
 									</label>
-									<input type="text" name="password" onChange={this.handlePasswordInput.bind(this)} />
-									<label for="package">
+									<input type="password" name="password" onChange={this.handleInput.bind(this)} />
+									<label htmlFor="package">
 										Choose Package
 									</label>
-									<select name="package" value={this.state.package} onChange={this.handlePackageInput.bind(this)}>
+									<select name="package" value={this.state.package} onChange={this.handleInput.bind(this)}>
 										<option>Basic</option>
 										<option>Premium</option>
 									</select>
-									<label for="email">
+									<label htmlFor="email">
 										Contact Email:
 									</label>
-									<input type="text" name="email" onChange={this.handleEmailInput.bind(this)} />
+									<input type="text" name="email" onChange={this.handleInput.bind(this)} />
 									<input type="submit" className="button-submit" value="Add Account" />
 								</div>
 							</div>

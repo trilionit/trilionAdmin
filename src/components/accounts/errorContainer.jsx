@@ -6,11 +6,11 @@ class errorContainer extends Component{
 	}
 	
 	render(){
-		console.log(this.props);
-		if(this.props.displayError.error ==1){	
+		//console.log(this.props);
+		if(this.props.formErrors[fieldName].length >0){	
 			return(
 				<div className="alert-container alert-error">
-					<strong>{this.props.displayError.element} !</strong> {this.props.displayError.errorMessage}
+					<strong>Invalid !</strong> {this.props.formErrors}
 				</div>
 			);
 		}

@@ -572,12 +572,15 @@ section{
 }
 .style__button-submit___Q_g5j{
     width:auto;
+    border:none;
+    margin-top: 10px;
     background:#03C587;
     color:#FFF;
     padding:10px 15px;
 }
 .style__button-submit___Q_g5j:hover{
     background:#169855;
+    cursor: not-allowed;
 }
 .style__button-delete___3ED6c:hover{
     background:#B71C1C;
@@ -641,7 +644,7 @@ section{
     color: #333;
     margin:10px 0;
 }
-.style__form-elements___1EZdv input[type=text], .style__form-elements___1EZdv input[type=email], .style__form-elements___1EZdv select{
+.style__form-elements___1EZdv input[type=text],.style__form-elements___1EZdv input[type=password] .style__form-elements___1EZdv input[type=email], .style__form-elements___1EZdv select{
     padding: 10px 12px;
     border:1px solid #ddd;
     box-sizing: border-box;
