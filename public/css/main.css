@@ -580,7 +580,6 @@ section{
 }
 .style__button-submit___Q_g5j:hover{
     background:#169855;
-    cursor: not-allowed;
 }
 .style__button-delete___3ED6c:hover{
     background:#B71C1C;
@@ -644,9 +643,14 @@ section{
     color: #333;
     margin:10px 0;
 }
-.style__form-elements___1EZdv input[type=text],.style__form-elements___1EZdv input[type=password] .style__form-elements___1EZdv input[type=email], .style__form-elements___1EZdv select{
+.style__form-elements___1EZdv .style__input-box___2zGEc{
     padding: 10px 12px;
     border:1px solid #ddd;
+    box-sizing: border-box;
+    width: 100%;
+}
+.style__form-elements___1EZdv select{
+    padding: 10px 12px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -658,6 +662,24 @@ section{
 .style__form-elements___1EZdv input[type=submit], button.style__submit___AaU-t{
     border:none;
     margin:15px 0;
+}
+/* form error container */
+.style__form-elements___1EZdv .style__input-error___1wIm-{
+    padding: 10px 12px;
+    border:1px solid #ddd;
+    border-bottom:2px solid #E93924;
+    box-sizing: border-box;
+    width: 100%;
+    -webkit-box-shadow: 0 6px 2px -6px #E93924;
+       -moz-box-shadow: 0 6px 2px -6px #E93924;
+            box-shadow: 0 6px 2px -6px #E93924;
+}
+
+.style__form-elements___1EZdv span{
+    float: left;
+    width: 100%;
+    margin:10px 0 0 0;
+    color:#E93924;
 }
 
 footer{

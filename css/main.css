@@ -643,9 +643,14 @@ section{
     color: #333;
     margin:10px 0;
 }
-.form-elements input[type=text],.form-elements input[type=password], .form-elements input[type=email], .form-elements select{
+.form-elements .input-box{
     padding: 10px 12px;
     border:1px solid #ddd;
+    box-sizing: border-box;
+    width: 100%;
+}
+.form-elements select{
+    padding: 10px 12px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -657,6 +662,24 @@ section{
 .form-elements input[type=submit], button.submit{
     border:none;
     margin:15px 0;
+}
+/* form error container */
+.form-elements .input-error{
+    padding: 10px 12px;
+    border:1px solid #ddd;
+    border-bottom:2px solid #E93924;
+    box-sizing: border-box;
+    width: 100%;
+    -webkit-box-shadow: 0 6px 2px -6px #E93924;
+       -moz-box-shadow: 0 6px 2px -6px #E93924;
+            box-shadow: 0 6px 2px -6px #E93924;
+}
+
+.form-elements span{
+    float: left;
+    width: 100%;
+    margin:10px 0 0 0;
+    color:#E93924;
 }
 
 footer{
