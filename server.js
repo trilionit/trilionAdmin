@@ -21,6 +21,27 @@ app.use( express.static(path.join(__dirname, 'public')));
 
 app.use('/', formSubmit);
 
+app.get('/accounts', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/accounts.html'))
+})
+app.get('/addAccount', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/addAccount.html'))
+})
+app.get('/addEmail', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/addEmail.html'))
+})
+app.get('/demo', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/demo.html'))
+})
+app.get('/editAccount', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/editAccount.html'))
+})
+app.get('/editEmail', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/editEmail.html'))
+})
+app.get('/package', (req,res)=>{
+	res.sendFile(path.join(__dirname,'public/package.html'))
+})
 //send any route to index.html where the react app is mounted
 app.get('*', (req,res)=>{
 	res.sendFile(path.join(__dirname,'public/index.html'))
